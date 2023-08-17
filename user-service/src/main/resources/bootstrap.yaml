@@ -1,0 +1,7 @@
+
+spring:
+  cloud:
+    config:
+      enabled: true
+      name: CONFIG-SERVER
+      uri: http://localhost:9192

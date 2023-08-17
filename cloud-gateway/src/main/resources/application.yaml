@@ -28,6 +28,10 @@ spring:
             name: DEPARTMENT-SERVICE
             fallbackUri: forward:/fallbackDepartmentService
 
+  config:
+    import:
+    - configserver:http://localhost:9192
+    name: application.yaml
 
     
 management:

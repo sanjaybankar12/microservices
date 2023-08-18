@@ -13,8 +13,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
-
   config:
     import: configserver:http://localhost:9192
     name: application.yaml
-      
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    enabled: true

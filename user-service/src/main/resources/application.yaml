@@ -16,6 +16,6 @@ spring:
       ddl-auto: update
   
   config:
-    import:
-    - configserver:http://localhost:9192
-    name: application.yaml
+    import: configserver:http://localhost:9192
+    name: application.yaml    
+ 

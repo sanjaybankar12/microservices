@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.spring.exception.DepartmentNotFoundException;
 import com.spring.exception.ErrorMessage;
 import com.spring.exception.UserNotFoundException;
 
@@ -19,4 +20,14 @@ public class RestExceptionHandler {
 		
 		return new ResponseEntity<>(em, HttpStatus.NOT_FOUND);
 	}
+
+	@ExceptionHandler(DepartmentNotFoundException.class)
+	public ResponseEntity<ErrorMessage> handleUserNotFoundException(DepartmentNotFoundException ex) {
+		ErrorMessage em = new ErrorMessage();
+		em.setCode(ex.getCode());
+		em.setMessage(ex.getMessage());
+		
+		return new ResponseEntity<>(em, HttpStatus.NOT_FOUND);
+	}
+
 }

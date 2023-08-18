@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.entity.User;
+import com.spring.exception.DepartmentNotFoundException;
 import com.spring.exception.UserNotFoundException;
 import com.spring.model.UserOp;
 import com.spring.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<UserOp> getUserById(@PathVariable Integer id) throws UserNotFoundException {
+	public ResponseEntity<UserOp> getUserById(@PathVariable Integer id) throws UserNotFoundException, DepartmentNotFoundException {
 		return new ResponseEntity<>(this.userService.getUser(id), HttpStatus.OK);
 	}
 }
